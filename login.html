@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="left-section">
+        <div class="top-header">
+            <button class="btn-back"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="logo-placeholder"></div>
+            <span class="system-name">NOME DO SISTEMA</span>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="login-header">
+            <p class="subtitle">Faça o seu</p>
+            <h1>LOGIN</h1>
+            <div class="underline"></div>
+            <p class="description">Gerencie suas fábricas, equipes e produções em um único lugar.</p>
+        </div>
+
+        <form action="#" method="post" onsubmit="event.preventDefault(); irParaOutraPagina();">
+            
+            <div class="input-group">
+                <label>Entre com seu endereço de email</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" id="email" placeholder="SeuEmail@gmail.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="SuaSenha" required>
+                </div>
+                <a href="EsqueceuSenha.html" class="forgot-password">Esqueceu a Senha?</a>
+            </div>
+
+            <button type="submit" class="btn-login">LOGIN</button>
+            
+            <a href="cadastro.html" class="register-link">Cadastre-se Agora</a>
+        </form>
+    </div>
+
+    <script>
+        function irParaOutraPagina() {
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('password').value.trim();
+
+            if (email && senha) {
+                window.location.href = 'cadastro.html';
+            } else {
+                alert('Preencha o e-mail e a senha para continuar.');
+            }
+        }
+    </script>
+</body>
+</html>

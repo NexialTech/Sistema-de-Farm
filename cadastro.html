@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="cadastro-container">
+        <h1>📝 Criar conta</h1>
+        <p class="subtitulo">Preencha os dados abaixo para se cadastrar</p>
+
+        <!-- X Criar a tag <form> para o cadastro. -->
+        <form action="#" method="post" onsubmit="return validarSenha(event)">
+            <!-- X Input do tipo EMAIL para o “Email“. -->
+            <div class="campo">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+            </div>
+
+            <!-- X Input do tipo PASSWORD para a “Senha“, colocar a confirmação de senha também. -->
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="new-password" required minlength="6">
+            </div>
+
+            <div class="campo">
+                <label for="confirmarSenha">Confirmar senha</label>
+                <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" autocomplete="new-password" required minlength="6">
+                <p id="mensagemErro" class="erro" aria-live="polite"></p>
+            </div>
+
+            <!-- X Input do tipo TEXT para o “Código das organização“, adicione o REQUIRED para obrigar o preencimento. -->
+            <div class="campo">
+                <label for="codigoOrganizacao">Código da organização</label>
+                <input type="text" id="codigoOrganizacao" name="codigoOrganizacao" placeholder="Exemplo(abc1234)" required pattern="(?=.{7}$)(?=(?:.*[A-Za-z]){3})(?=(?:.*\d){4})[A-Za-z0-9]+" maxlength="7" title="(verifique o codigo para o acesso correto)">
+                <p id="mensagemCodigo" class="erro" aria-live="polite"></p>
+            </div>
+
+            <div class="botoes">
+                <!-- X Botão de “Cadastrar“. -->
+                <button type="submit" class="btn-cadastrar">Cadastrar</button>
+
+                <!-- X Botão de “Voltar“. -->
+                <button type="button" class="btn-voltar" onclick="window.location.href='login.html'">Voltar</button>
+            </div>
+        </form>
+
+        <p class="aviso">🔒 Seus dados estão protegidos.</p>
+    </main>
+
+    <script>
+        function validarSenha(event) {
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmarSenha').value;
+            const mensagemErro = document.getElementById('mensagemErro');
+            const codigo = document.getElementById('codigoOrganizacao').value;
+            const mensagemCodigo = document.getElementById('mensagemCodigo');
+
+            if (senha !== confirmarSenha) {
+                event.preventDefault();
+                mensagemErro.textContent = 'As senhas não coincidem.';
+                mensagemErro.classList.add('visible');
+                return false;
+            }
+
+            mensagemErro.textContent = '';
+            mensagemErro.classList.remove('visible');
+
+            const padraoCodigo = /^(?=.{7}$)(?=(?:.*[A-Za-z]){3})(?=(?:.*\d){4})[A-Za-z0-9]+$/;
+            if (!padraoCodigo.test(codigo)) {
+                event.preventDefault();
+                mensagemCodigo.textContent = '(verifique o codigo para o acesso correto)';
+                mensagemCodigo.classList.add('visible');
+                return false;
+            }
+
+            mensagemCodigo.textContent = '';
+            mensagemCodigo.classList.remove('visible');
+            return true;
+        }
+    </script>
+</body>
+</html>
