@@ -6,7 +6,7 @@ document.getElementById('form-login').addEventListener('submit', function(event)
 
     if (email && senha) {
         // Se ambos os campos estiverem preenchidos, realiza o redirecionamento
-        window.location.href = 'cadastro.html';
+        window.location.href = 'BarraLateral.html';
     } else {
         alert('Preencha o e-mail e a senha para continuar.');
     }
