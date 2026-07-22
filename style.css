@@ -234,3 +234,8 @@ input:focus {
     color: #a39db3;
     border: 1px solid #483d6b;
 }
+
+.btn-voltar-secundario:hover{
+    background: #483d6b;
+    color: white;
+}
