@@ -6,6 +6,7 @@
 }
 
 :root {
+    /* Colors */
     --primary-color: #32244F;
     --secondary-color: #BCA3F2;
     --base-color: #9333EA;
@@ -15,6 +16,19 @@
     --text-2-color: #a39db3;
     --text-3-color: #6a647d;
     --erro-color: #ff4d4f;
+
+    /* Font Size */
+    --font-size-s: 0.8rem; 
+    --font-size-n: 1.0rem;
+    --font-size-m: 1.2rem;
+    --font-size-l: 2.0rem;
+    --font-size-xl: 2.5rem;
+    
+    /* Font weight */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semiblod: 600;
+    --font-weight-blod: 700;
 }
 
 body {
