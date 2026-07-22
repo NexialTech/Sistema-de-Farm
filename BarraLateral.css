@@ -28,7 +28,7 @@ aside {
     transition: transform 0.3s ease;
 }
 
-/* ===== LOGO / TÍTULO ===== */
+/* ===== LOGO ===== */
 .logo {
     font-size: 22px;
     font-weight: 700;
@@ -117,22 +117,37 @@ nav ul li a .icone {
     margin-top: 12px;
 }
 
-/* ===== SUBITENS ===== */
-nav ul li ul {
-    padding-left: 20px;
+/* ===== SUBMENU (oculto por padrão) ===== */
+.submenu {
     list-style: none;
+    padding-left: 20px;
     margin-top: 2px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
 }
 
-nav ul li ul li a {
+/* ===== SUBMENU ABERTO ===== */
+.menu-item.aberto .submenu {
+    max-height: 200px; /* altura suficiente para o conteúdo */
+}
+
+/* ===== SUBITENS ===== */
+.submenu li a {
     font-size: 13px;
     padding: 10px 16px 10px 36px;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 10px;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
-nav ul li ul li a::before {
+.submenu li a::before {
     content: "▸";
     position: absolute;
     left: 16px;
@@ -140,9 +155,25 @@ nav ul li ul li a::before {
     font-size: 12px;
 }
 
-nav ul li ul li a:hover {
+.submenu li a:hover {
     background: rgba(255, 255, 255, 0.08);
     transform: translateX(4px);
+}
+
+/* ===== SETA ===== */
+.seta {
+    margin-left: auto;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item.aberto .seta {
+    transform: rotate(90deg);
+}
+
+/* ===== ITEM COM SUBMENU ===== */
+.menu-item.has-submenu > a {
+    cursor: pointer;
 }
 
 /* ===== ÁREA PRINCIPAL ===== */
@@ -193,4 +224,3 @@ aside::-webkit-scrollbar-thumb {
         padding: 20px;
     }
 }
-

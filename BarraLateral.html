@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema FARM - Menu Lateral</title>
     <link rel="stylesheet" href="BarraLateral.css" />
+    <style>
+        
+        
+    </style>
 </head>
 <body>
 
@@ -40,25 +44,35 @@
                 <li><a href="#"><span class="icone">✅</span> Aprovar Farm</a></li>
                 <li><a href="#"><span class="icone">✅</span> Aprovar Fabricação</a></li>
 
-                <li>
-                    <a href="#"><span class="icone">📋</span> Encomendas</a>
-                    
-                        <li><a href="#"><span class="icone">📨</span> Solicitações de Encomendas</a></li>
-                    
+                <!-- ===== ENCOMENDAS COM SUBMENU ===== -->
+                <li class="menu-item has-submenu">
+                    <a href="#" onclick="toggleSubmenu(event)">
+                        <span class="icone">📋</span> Encomendas
+                        <span class="seta">▶</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#">📨 Solicitações de Encomendas</a></li>
+                    </ul>
                 </li>
 
                 <li><a href="#"><span class="icone">🎯</span> Criar Metas</a></li>
-                <li><a href="#"><span class="icone">🔑</span> Gerador de códigos</a></li>
+                <li><a href="#"><span class="icone">🔑</span> Gerador de Códigos</a></li>
                 <li><a href="#"><span class="icone">🏆</span> Ranking</a></li>
                 <li><a href="#"><span class="icone">🤝</span> Parceria</a></li>
-
-                
-                
                 <li><a href="#"><span class="icone">💎</span> Planos e Assinaturas</a></li>
             </ul>
         </nav>
     </aside>
 
-
+    <script>
+        function toggleSubmenu(event) {
+            event.preventDefault(); // impede o redirecionamento
+            const item = event.currentTarget.closest('.has-submenu');
+            if (item) {
+                item.classList.toggle('aberto');
+                
+            }
+        }
+    </script>
 </body>
-</html> 
+</html>
