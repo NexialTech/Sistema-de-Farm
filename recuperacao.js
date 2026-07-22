@@ -15,20 +15,22 @@
     }
 
     function atualizarMensagens() {
+        // E-mail
         if (emailInput.value.trim() === '') {
-            erroEmail.style.display = 'none'; 
+            erroEmail.classList.remove('visible'); 
         } else if (!validarEmail(emailInput.value)) {
-            erroEmail.style.display = 'block';
+            erroEmail.classList.add('visible');
         } else {
-            erroEmail.style.display = 'none';
+            erroEmail.classList.remove('visible');
         }
 
+        // Código
         if (codigoInput.value.trim() === '') {
-            erroCodigo.style.display = 'none';
+            erroCodigo.classList.remove('visible');
         } else if (!validarCodigo(codigoInput.value)) {
-            erroCodigo.style.display = 'block';
+            erroCodigo.classList.add('visible');
         } else {
-            erroCodigo.style.display = 'none';
+            erroCodigo.classList.remove('visible');
         }
     }
 
@@ -43,17 +45,19 @@
 
         if (!emailValido || !codigoValido) {
             e.preventDefault(); 
+            
             if (!emailValido) {
-                erroEmail.style.display = 'block';
+                erroEmail.classList.add('visible');
                 emailInput.focus();
             } else {
-                erroEmail.style.display = 'none';
+                erroEmail.classList.remove('visible');
             }
+            
             if (!codigoValido) {
-                erroCodigo.style.display = 'block';
+                erroCodigo.classList.add('visible');
                 if (emailValido) codigoInput.focus();
             } else {
-                erroCodigo.style.display = 'none';
+                erroCodigo.classList.remove('visible');
             }
         } else {
             e.preventDefault(); 
