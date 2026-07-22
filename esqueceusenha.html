@@ -5,284 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperação de Senha</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .recuperar-container {
-            background-color: #ffffff;
-            border-radius: 20px;
-            padding: 40px 32px;
-            max-width: 420px;
-            width: 100%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease;
-        }
-
-        .recuperar-container:hover {
-            transform: translateY(-2px);
-        }
-
-        h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 6px;
-        }
-
-        .descricao {
-            color: #718096;
-            font-size: 15px;
-            margin-bottom: 28px;
-            border-bottom: 1px solid #f0f4f8;
-            padding-bottom: 18px;
-        }
-
-        .campo {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            font-size: 14px;
-            color: #4a5568;
-            margin-bottom: 6px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px 16px;
-            font-size: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            background-color: #f7fafc;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: #667eea;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
-        }
-
-        /* Estilos de validação */
-        input:invalid:not(:placeholder-shown) {
-            border-color: #fc8181;
-        }
-
-        input:valid:not(:placeholder-shown) {
-            border-color: #48bb78;
-        }
-
-        .botoes {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        button {
-            font-size: 16px;
-            font-weight: 600;
-            padding: 12px 20px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .btn-recuperar {
-            background-color: #48bb78;
-            color: white;
-            box-shadow: 0 4px 10px rgba(72, 187, 120, 0.3);
-        }
-
-        .btn-recuperar:hover {
-            background-color: #38a169;
-            transform: scale(1.01);
-            box-shadow: 0 6px 14px rgba(72, 187, 120, 0.4);
-        }
-
-        .link-voltar {
-            display: block;
-            text-align: center;
-            margin-top: 16px;
-            color: #a0aec0;
-            font-size: 14px;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .link-voltar:hover {
-            color: #4a5568;
-            text-decoration: underline;
-        }
-
-        .aviso {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 13px;
-            color: #a0aec0;
-        }
-
-        /* Mensagem de erro customizada */
-        .erro-msg {
-            color: #fc8181;
-            font-size: 13px;
-            margin-top: 4px;
-            display: none;
-        }
-
-        .erro-msg.visivel {
-            display: block;
-        }
-
-        @media (max-width: 480px) {
-            .recuperar-container {
-                padding: 28px 20px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="forgot-page">
 
-    <main class="recuperar-container">
-        <h1>🔐 Recuperação de senha</h1>
-        <p class="descricao">Insira seu e-mail e o código da sua org/fac para receber um link de redefinição.</p>
+    <div class="left-section"></div>
+
+    <div class="right-section">
+        <div class="login-header">
+            <p class="subtitle">Recuperação de conta</p>
+            <h1>ESQUECI A SENHA</h1>
+            <div class="underline"></div>
+            <p class="description">Insira seu e-mail e o código da sua facção para receber um link de redefinição.</p>
+        </div>
 
         <form id="form-recuperar" action="#" method="post" novalidate>
-            <div class="campo">
+            
+            <div class="input-group">
                 <label for="email-recuperacao">E-mail cadastrado</label>
-                <input 
-                    type="email" 
-                    id="email-recuperacao" 
-                    name="email-recuperacao" 
-                    placeholder="seu@email.com" 
-                    autocomplete="email"
-                    required
-                >
-                <!-- Mensagem de erro personalizada para o e-mail -->
-                <div id="erro-email" class="erro-msg">Por favor, insira um e-mail válido (com @).</div>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input 
+                        type="email" 
+                        id="email-recuperacao" 
+                        name="email-recuperacao" 
+                        placeholder="seu@email.com" 
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+                <div id="erro-email" class="erro" style="display: none; margin-top: 8px;">Por favor, insira um e-mail válido (com @).</div>
             </div>
 
-            <div class="campo">
-                <label for="codigo-org">Código da org/fac</label>
-                <input 
-                    type="text" 
-                    id="codigo-org" 
-                    name="codigo-org" 
-                    placeholder="Ex: A1B2C34 (4 números, 3 letras)" 
-                    autocomplete="off"
-                    required
-                    pattern="^(?=(?:\D*\d){4})(?=(?:[^A-Za-z]*[A-Za-z]){3})[A-Za-z0-9]{7}$"
-                    title="O código deve ter exatamente 7 caracteres, com 4 números e 3 letras (maiúsculas ou minúsculas), em qualquer ordem. Exemplo: A1B2C34"
-                >
-                <!-- Mensagem de erro personalizada para o código -->
-                <div id="erro-codigo" class="erro-msg">O código deve ter 7 caracteres, com 4 números e 3 letras.</div>
+            <div class="input-group">
+                <label for="codigo-org">Código da facção</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-key"></i>
+                    <input 
+                        type="text" 
+                        id="codigo-org" 
+                        name="codigo-org" 
+                        placeholder="Ex: A1B2C34 (4 números, 3 letras)" 
+                        autocomplete="off"
+                        required
+                        pattern="^(?=(?:\D*\d){4})(?=(?:[^A-Za-z]*[A-Za-z]){3})[A-Za-z0-9]{7}$"
+                        title="O código deve ter exatamente 7 caracteres, com 4 números e 3 letras."
+                    >
+                </div>
+                <div id="erro-codigo" class="erro" style="display: none; margin-top: 8px;">O código deve ter 7 caracteres, com 4 números e 3 letras.</div>
             </div>
 
-            <div class="botoes">
-                <button type="submit" class="btn-recuperar">📧 Recuperar senha</button>
-            </div>
+            <button type="submit" class="btn-login" style="margin-top: 10px;">RECUPERAR SENHA</button>
+            <button type="button" class="btn-voltar-secundario" onclick="window.location.href='login.html'">VOLTAR PARA O LOGIN</button>
+            
         </form>
+    </div>
 
-        <a href="login.html" class="link-voltar">← Voltar ao login</a>
-        <p class="aviso">🔒 Ambiente seguro - Suas informações estão protegidas</p>
-    </main>
-
-    <script>
-        (function() {
-            const form = document.getElementById('form-recuperar');
-            const emailInput = document.getElementById('email-recuperacao');
-            const codigoInput = document.getElementById('codigo-org');
-            const erroEmail = document.getElementById('erro-email');
-            const erroCodigo = document.getElementById('erro-codigo');
-
-            // Função para validar o e-mail (verifica se contém @)
-            function validarEmail(valor) {
-                return valor.includes('@');
-            }
-
-            // Função para validar o código (usando a regex)
-            function validarCodigo(valor) {
-                const regex = /^(?=(?:\D*\d){4})(?=(?:[^A-Za-z]*[A-Za-z]){3})[A-Za-z0-9]{7}$/;
-                return regex.test(valor);
-            }
-
-            // Mostrar/esconder mensagens de erro com base no estado do campo
-            function atualizarMensagens() {
-                // E-mail
-                if (emailInput.value.trim() === '') {
-                    erroEmail.style.display = 'none'; // não mostrar erro se vazio (o required vai atuar)
-                } else if (!validarEmail(emailInput.value)) {
-                    erroEmail.style.display = 'block';
-                } else {
-                    erroEmail.style.display = 'none';
-                }
-
-                // Código
-                if (codigoInput.value.trim() === '') {
-                    erroCodigo.style.display = 'none';
-                } else if (!validarCodigo(codigoInput.value)) {
-                    erroCodigo.style.display = 'block';
-                } else {
-                    erroCodigo.style.display = 'none';
-                }
-            }
-
-            // Atualizar as mensagens ao digitar ou sair do campo
-            emailInput.addEventListener('input', atualizarMensagens);
-            emailInput.addEventListener('blur', atualizarMensagens);
-            codigoInput.addEventListener('input', atualizarMensagens);
-            codigoInput.addEventListener('blur', atualizarMensagens);
-
-            // Impedir o envio se houver erro
-            form.addEventListener('submit', function(e) {
-                // Forçar a validação de todos os campos (required e pattern)
-                const emailValido = validarEmail(emailInput.value) && emailInput.value.trim() !== '';
-                const codigoValido = validarCodigo(codigoInput.value) && codigoInput.value.trim() !== '';
-
-                if (!emailValido || !codigoValido) {
-                    e.preventDefault(); // impede o envio
-                    // Mostrar mensagens de erro
-                    if (!emailValido) {
-                        erroEmail.style.display = 'block';
-                        emailInput.focus();
-                    } else {
-                        erroEmail.style.display = 'none';
-                    }
-                    if (!codigoValido) {
-                        erroCodigo.style.display = 'block';
-                        if (emailValido) codigoInput.focus();
-                    } else {
-                        erroCodigo.style.display = 'none';
-                    }
-                } else {
-                    // Se tudo estiver válido, pode enviar (ou exibir sucesso)
-                    e.preventDefault(); // remova esta linha se quiser enviar de fato
-                    alert('Dados enviados com sucesso! (Simulação)');
-                    // Se quiser redirecionar: window.location.href = '/pagina-de-sucesso';
-                }
-            });
-        })();
-    </script>
+    <script src="recuperacao.js"></script>
 </body>
 </html>

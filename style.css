@@ -233,9 +233,32 @@ input:focus {
     background: transparent;
     color: #a39db3;
     border: 1px solid #483d6b;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .btn-voltar-secundario:hover{
-    background: #483d6b;
+    border-color: #8c52ff;
     color: white;
+    background-color: rgba(140, 82, 255, 0.1);
+}
+
+.erro{
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 0;
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.erro.visible{
+    min-height: 18px;
+    margin-top: 8px;
+    opacity: 1;
 }
