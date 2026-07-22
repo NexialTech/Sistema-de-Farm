@@ -10,8 +10,10 @@
     --secondary-color: #BCA3F2;
     --base-color: #9333EA;
     --emphasis-color: #685097;
+    --highlights-color: #8c52ff;
     --text-1-color: #E4DCF5;
     --text-2-color: #a39db3;
+    --text-3-color: #6a647d;
     --erro-color: #ff4d4f;
 }
 
@@ -52,7 +54,7 @@ body {
 
 .btn-back {
     background-color: var(--base-color);
-    color: white;
+    color: var(--text-1-color);
     border: none;
     width: 40px;
     height: 40px;
@@ -72,7 +74,7 @@ body {
 .logo-placeholder {
     width: 35px;
     height: 35px;
-    background-color: #d9d9d9;
+    background-color: var(--text-1-color);
     border-radius: 50%;
 }
 
@@ -80,13 +82,13 @@ body {
     font-weight: 800;
     font-size: 14px;
     letter-spacing: 0.5px;
-    color: #d1c5f3;
+    color: var(--text-1-color);
 }
 
 /* === LADO DIREITO === */
 .right-section {
     width: 480px;
-    background-color: #2b2346;
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,7 +103,7 @@ body {
 
 .subtitle {
     font-size: 14px;
-    color: #a39db3;
+    color: var(--text-2-color);
     margin-bottom: 4px;
 }
 
@@ -115,14 +117,14 @@ h1 {
 .underline { /*Responsavel pela barrinha roxa abaixo do nome Login*/
     width: 115px; /*Tamanho da barrinha*/
     height: 5px; /*Espessura da barrinha*/
-    background-color: #8c52ff;
+    background-color: var(--highlights-color);
     border-radius: 2px;
     margin-bottom: 16px;
 }
 
 .description {
     font-size: 13px;
-    color: #a39db3;
+    color: var(--text-2-color);
     line-height: 1.5;
 }
 
@@ -134,7 +136,7 @@ h1 {
 .input-group > label {
     display: block;
     font-size: 12px;
-    color: #a39db3;
+    color: var(--text-2-color);
     margin-bottom: 8px;
 }
 
@@ -147,7 +149,7 @@ h1 {
 .input-wrapper i {
     position: absolute;
     left: 16px;
-    color: #a39db3;
+    color: var(--secondary-color);
     font-size: 16px;
 }
 
@@ -157,25 +159,25 @@ input {
     border: 1px solid transparent;
     padding: 16px 16px 16px 45px;
     border-radius: 8px;
-    color: white;
+    color: var(--text-1-color);
     font-size: 14px;
     outline: none;
     transition: 0.3s;
 }
 
 input::placeholder {
-    color: #6a647d;
+    color: var(--text-3-color);
 }
 
 input:focus {
-    border-color: #8c52ff;
-    background-color: #231c36;
+    border-color: var(--emphasis-color);
+    background-color: var(--primary-color);
 }
 
 /* Links e Botão */
 .forgot-password {
     display: block;
-    color: #8c52ff;
+    color: var(--highlights-color);
     text-decoration: none;
     font-size: 12px;
     font-weight: 700;
@@ -241,8 +243,8 @@ input:focus {
 .btn-voltar-secundario{
     width: 100%;
     background: transparent;
-    color: #a39db3;
-    border: 1px solid #483d6b;
+    color: var(--text-2-color);
+    border: 1px solid var(--emphasis-color);
     padding: 16px;
     border-radius: 12px;
     font-size: 14px;
@@ -252,13 +254,13 @@ input:focus {
 }
 
 .btn-voltar-secundario:hover{
-    border-color: #8c52ff;
-    color: white;
+    border-color: var(--highlights-color);
+    color: var(--text-1-color);
     background-color: rgba(140, 82, 255, 0.1);
 }
 
 .erro{
-    color: #ff4d4f;
+    color: var(--erro-color);
     font-size: 12px;
     margin-top: 0;
     min-height: 0;
